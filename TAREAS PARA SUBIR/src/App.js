@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import TopNavBar from './components/TopNavBar';
 import SideNavBar from './components/SideNavBar';
-import Login from './pages/Login';
+
 
 
   function App(){
@@ -11,7 +11,6 @@ import Login from './pages/Login';
      return(
       <Router>
           <Routes>
-             <Route path="/login"element={<Login/>}/>
              <Route path="/*"element={
               <div>
                  <TopNavBar />
