@@ -1,27 +1,30 @@
 import React from 'react';
+import { Navigate } from 'react-router-dom';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import TopNavBar from './components/TopNavBar';
 import SideNavBar from './components/SideNavBar';
+import Footer from './components/footer';
+import Home from './pages/Home';
 
+const items = []; // Vacío por ahora, pero se verá texto
 
-
-  function App(){
-
-    
-     return(
+function App() {
+  return (
+    <div className="d-flex flex-column min-vh-100">
       <Router>
-          <Routes>
-             <Route path="/*"element={
-              <div>
-                 <TopNavBar />
-                 <SideNavBar/>
-              </div>
-             }/>
-
-          </Routes>
-      </Router>   
-
-    );
+        <TopNavBar />
+        <div className="d-flex flex-grow-1">
+          <SideNavBar />
+          <div className="flex-grow-1">
+               <Routes>
+                  <Route path="/home" element={<Home items={items} />} />
+                  </Routes>
+          </div>
+        </div>
+        <Footer />
+      </Router>
+    </div>
+  );
 }
 
 export default App;
