@@ -1,32 +1,20 @@
-import { GrUser } from "react-icons/gr";
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
-function TopNavBar() {
+function TopNavbar() {
+  const navigate = useNavigate();
+
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary p-3">
+    <nav className="navbar navbar-dark fixed-top" style={{ backgroundColor: '#436146' }}>
       <div className="container-fluid">
-        <span className="navbar-brand">Mi aplicación de </span>
-        <div className="dropdown ms-auto">
-          <button
-            className="btn btn-primary dropdown-toggle"
-            type="button"
-            data-bs-toggle="dropdown">
-         
-          
-            <GrUser className="me-2" /> Usuario
+        <span className="navbar-brand mx-auto">Mi Biblioteca con React</span>
+        <div className="dropdown">
+          <button className="btn btn-light dropdown-toggle" data-bs-toggle="dropdown">
+            Usuario
           </button>
           <ul className="dropdown-menu dropdown-menu-end">
-            <li>
-              <button className="dropdown-item">Perfil
-                
-              </button>
-            </li>
-            <li>
-              <a className="dropdown-item" href="#">Cerrar Sesion
-              </a>
-              <a className="dropdown-item" href="#">pop
-                
-              </a>
-            </li>
+            <li><button className="dropdown-item" onClick={() => navigate('/perfil')}>Perfil</button></li>
+            <li><button className="dropdown-item" onClick={() => navigate('/libros')}>Gestión de Libros</button></li>
           </ul>
         </div>
       </div>
@@ -34,4 +22,4 @@ function TopNavBar() {
   );
 }
 
-export default TopNavBar;
+export default TopNavbar;
